@@ -142,7 +142,7 @@ function landingHTML() {
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generate Payment URL</title>
+    <title>Generate Payment QR CODE</title>
     <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
     <style>
       body {
@@ -246,16 +246,13 @@ function landingHTML() {
   </head>
   <body>
     <div class="container">
-      <h1>Generate Payment URL</h1>
+      <h1>Generate Payment QR CODE</h1>
       <form onsubmit="return validateForm()" id="generateForm">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" placeholder="(Optional)">
-        <label for="upiId">UPI ID:</label>
-        <input type="text" id="upiId" name="upiId" required>
+        <input type="text" required>
         <label for="amount">Amount:</label>
-        <input type="number" id="amount" name="amount" placeholder="(Optional)">
+        
         <div id="generateButton">
-          <button type="submit">Generate URL</button>
+          <button type="submit">Generate QR</button>
         </div>
       </form>
       <div id="generatedURLContainer">
@@ -313,7 +310,7 @@ async function generateQR(request) {
   const name = params.get('pn');
   const amount = params.get('am');
 
-  var upiLink = `upi://pay?pa=${upiId}&pn=${name}&cu=INR`;
+  var upiLink = `upi://pay?pa=9633605648@fam&pn=Sabarinath&cu=INR`;
   if (amount !== null && amount !== "") {
     upiLink += `&am=${amount}`;
   }
